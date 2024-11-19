@@ -1,0 +1,207 @@
+#bg-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#bg-wrap svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Badge Styles */
+.badge-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(45deg);
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.badge {
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.badge-sale {
+    background: #ff6b6b;
+    /* Color para OFERTA */
+}
+
+.badge-soldout {
+    background: #333;
+    /* Color para AGOTADO */
+}
+
+.container-fluid {
+    font-family: 'SpaceGrotesk';
+    padding-top: 42px;
+
+}
+
+.price-tag {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #858ae3;
+    /* Rojo claro */
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.price-tag span {
+    color: white;
+    /* Color oscuro para mejor legibilidad */
+}
+
+/* Productos Relacionados */
+#related-products-carousel .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#related-products-carousel .card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#related-products-carousel .card-title {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+#related-products-carousel .card-text {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Flechas del carrusel */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #858ae3;
+    /* Burdeos */
+    width: 50px;
+    /* Ajusta el tamaño según sea necesario */
+    height: 50px;
+    /* Ajusta el tamaño según sea necesario */
+    border-radius: 50%;
+    background-size: 100%, 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+}
+
+.carousel-control-prev-icon::after {
+    transform: rotate(135deg);
+}
+
+.carousel-control-next-icon::after {
+    transform: rotate(-45deg);
+}
+
+/* catalogo.component.scss */
+.container {
+    margin-top: 2rem;
+}
+
+.card {
+    font-family: 'SpaceGrotesk';
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+    
+  .card-img-topp {
+    padding-bottom: 8px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .content-wrapper {
+    max-height: 150px; /* Adjust this value as needed */
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+  
+  .price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #28a745;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 3px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+
+  

@@ -1,0 +1,9 @@
+{
+  "projects": {
+    "default": "test-sales",
+    "test-sales": "test-sales"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
+}

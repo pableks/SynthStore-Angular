@@ -1,0 +1,26 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "José Mourinho",
+            "username": "jose_mourinho",
+            "email": "mou@gmail.com",
+            "password": "Mouu!!123",
+            "birthdate": "1964-01-26",
+            "address": "Desierto, Calama",
+            "rol": "cliente",
+            "imagen": "/assets/fotoperfil/mourinho.png"
+        },
+        {
+            "id": 2,
+            "nombre": "Trypabl0",
+            "username": "try.pabl0",
+            "email": "trypablo@aura.cl",
+            "password": "#Adm456#",
+            "birthdate": "1998-10-14",
+            "address": "Paicaví, Concepción",
+            "rol": "admin",
+            "imagen": "/assets/fotoperfil/admin.png"            
+        }
+    ]
+}

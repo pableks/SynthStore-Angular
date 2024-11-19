@@ -1,0 +1,55 @@
+.checkout-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .text-center {
+        margin-bottom: 30px;
+    }
+
+    .card {
+        border: none;
+        border-radius: 0.25rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.25rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+
+            .row {
+                margin-bottom: 1.5rem;
+            }
+
+            .img-thumbnail {
+                max-width: 100%;
+                height: auto;
+                border: none;
+                box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            }
+
+            hr {
+                margin: 1.5rem 0;
+                border: 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .text-right {
+                margin-top: 1.5rem;
+            }
+
+            .h5 {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .btn-lg {
+        padding: 0.75rem 1.25rem;
+        font-size: 1.25rem;
+        border-radius: 0.3rem;
+    }
+}

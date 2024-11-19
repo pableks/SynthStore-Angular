@@ -1,0 +1,25 @@
+{
+    "testimonios": [
+      {
+        "nombre": "Rick Rubin",
+        "comentario": "Aura Music Tech Store tiene los mejores equipos de grabación. La calidad es insuperable.",
+        "estrellas": 5,
+        "imagen": "https://d.newsweek.com/en/full/235931/romano-cu0524-rubin-main-tease.jpg",
+        "profesion": "Productor musical"
+      },
+      {
+        "nombre": "Sylvia Massy",
+        "comentario": "Excelente servicio y productos de vanguardia. Definitivamente volveré a comprar aquí.",
+        "estrellas": 5,
+        "imagen": "https://i.ytimg.com/vi/6ksVA69HICE/maxresdefault.jpg",
+        "profesion": "Ingeniera de sonido"
+      },
+      {
+        "nombre": "Andrew Scheps",
+        "comentario": "Los equipos son de primera calidad y el servicio es excelente. ¡Me encanta comprar en Aura!",
+        "estrellas": 5,
+        "imagen": "https://tapeop.com/_m/photologue/photos/cache/scheps-01_display_horizontal.jpg",
+        "profesion": "Mezclador"
+      }
+    ]
+  }

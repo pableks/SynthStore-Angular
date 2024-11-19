@@ -1,0 +1,21 @@
+<div class="container mt-4">
+    <h2>Resultados de búsqueda para "{{ query }}"</h2>
+    <div *ngIf="results.length > 0; else noResults">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let product of results">
+                <div class="card mb-4">
+                    <img [src]="product.imagen" class="card-img-top" alt="{{ product.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.nombre }}</h5>
+                        <p class="card-text">{{ product.descripcionCorta }}</p>
+                        <a [routerLink]="['/producto', product.sku]" class="btn btn-primary">Ver Producto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #noResults>
+        <br>
+        <p>No se encontraron resultados para "{{ query }}".</p>
+    </ng-template>
+</div>

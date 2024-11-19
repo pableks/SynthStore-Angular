@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Mi Perfil</h2>
+
+    <div *ngIf="user" class="card mx-auto" style="max-width: 600px;">
+        <div class="card-body text-center">
+            <img [src]="user.imagen" class="rounded-circle mb-3" alt="Foto de perfil"
+                style="width: 150px; height: 150px;">
+            <div *ngIf="!editMode">
+                <h4 class="card-title">{{ user.nombre }}</h4>
+                <p class="card-text"><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+                <p class="card-text"><strong>Correo electrónico:</strong> {{ user.email }}</p>
+                <p class="card-text"><strong>Fecha de nacimiento:</strong> {{ user.birthdate }}</p>
+                <p class="card-text"><strong>Dirección:</strong> {{ user.address }}</p>
+                <button class="btn btn-primary" (click)="toggleEditMode()">Editar Perfil</button>
+            </div>
+
+            <div *ngIf="editMode">
+                <form (ngSubmit)="saveProfile()">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" [(ngModel)]="user.nombre" name="nombre"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="username" [(ngModel)]="user.username"
+                            name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="birthdate" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="birthdate" [(ngModel)]="user.birthdate"
+                            name="birthdate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="address" [(ngModel)]="user.address" name="address"
+                            required>
+                    </div>
+                    <button type="submit" class="btn btn-success me-2">Guardar</button>
+                    <button type="button" class="btn btn-secondary" (click)="toggleEditMode()">Cancelar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

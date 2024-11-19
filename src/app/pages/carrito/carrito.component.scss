@@ -1,0 +1,72 @@
+/* carrito.component.scss */
+
+.breadcrumb-container {
+    background-color: #f8f9fabc; /* Color de fondo */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    padding: 0.5rem 1rem; /* Espaciado interior */
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Sombra */
+    margin-bottom: 1rem; /* Espaciado inferior */
+  }
+  
+  .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  .breadcrumb-item a {
+    color: #858ae3;
+  }
+  
+  .breadcrumb-item.active {
+    color: #333;
+  }
+
+.card {
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+}
+
+.card-body .row {
+    width: 100%;
+}
+
+input.form-control {
+    width: 100px;
+}
+
+/* catalogo.component.scss */
+.container {
+    margin-top: 2rem;
+}
+
+.jumbotron {
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-container {
+    margin-bottom: 1.5rem;
+}
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-check {
+    margin-bottom: 0.5rem;
+}
+
+.alert {
+    margin-top: 1rem;
+}

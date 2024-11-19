@@ -1,0 +1,84 @@
+$primary-color: #858ae3;
+$background-color: #f8f9fa;
+$card-bg-color: #ffffff;
+$border-color: #dddddd;
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: $background-color;
+    padding: 2rem;
+}
+
+.register-card {
+    background-color: $card-bg-color;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid $border-color;
+
+    .register-title {
+        text-align: center;
+        color: $primary-color;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            font-weight: bold;
+            color: $primary-color;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            padding: 0.5rem;
+            border: 1px solid $border-color;
+        }
+    }
+
+    .btn-primary {
+        background-color: $primary-color;
+        border: none;
+        padding: 0.75rem;
+        border-radius: 5px;
+        width: 100%;
+        font-size: 1rem;
+        font-weight: bold;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+
+    .alert {
+        text-align: center;
+    }
+}
+
+
+.btn-block {
+    width: 100%;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.end-0 {
+    right: 0;
+}
+
+.top-0 {
+    top: 50%;
+    transform: translateY(-50%);
+}

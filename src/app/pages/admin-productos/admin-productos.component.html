@@ -1,0 +1,77 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Gestionar Productos</h2>
+
+    <div class="d-flex justify-content-between mb-3">
+        <button class="btn btn-primary" (click)="addProduct()">Agregar Producto</button>
+        <input type="search" class="form-control w-25" placeholder="Buscar producto..." [(ngModel)]="searchQuery"
+            (input)="filterProductos()">
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción Corta</th>
+                    <th>Precio</th>
+                    <th>SKU</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of filteredProductos">
+                    <td>{{ product.nombre }}</td>
+                    <td>{{ product.descripcionCorta }}</td>
+                    <td>{{ product.precio | currency:'CLP':'symbol' }}</td>
+                    <td>{{ product.sku }}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning me-2" (click)="selectProduct(product)">Editar</button>
+                        <button class="btn btn-sm btn-danger" (click)="deleteProduct(product)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="isEditing" class="edit-form p-4 mt-4 bg-light rounded shadow">
+        <h3 class="mb-3">{{ isAdding ? 'Agregar' : 'Editar' }} Producto</h3>
+        <form (ngSubmit)="saveProduct()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="selectedProduct!.nombre" name="nombre"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcionCorta" class="form-label">Descripción Corta</label>
+                <input type="text" class="form-control" id="descripcionCorta"
+                    [(ngModel)]="selectedProduct!.descripcionCorta" name="descripcionCorta" required>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" [(ngModel)]="selectedProduct!.descripcion"
+                    name="descripcion" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio</label>
+                <input type="number" class="form-control" id="precio" [(ngModel)]="selectedProduct!.precio"
+                    name="precio" required>
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">URL de la Imagen</label>
+                <input type="text" class="form-control" id="imagen" [(ngModel)]="selectedProduct!.imagen" name="imagen"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <input type="text" class="form-control" id="slug" [(ngModel)]="selectedProduct!.slug" name="slug"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="sku" class="form-label">SKU</label>
+                <input type="text" class="form-control" id="sku" [(ngModel)]="selectedProduct!.sku" name="sku" required>
+            </div>
+            <button type="submit" class="btn btn-success me-2">{{ isAdding ? 'Agregar' : 'Guardar' }}</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+        </form>
+    </div>
+</div>

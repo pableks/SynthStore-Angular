@@ -1,0 +1,93 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Gestionar Usuarios</h2>
+
+  <div class="d-flex justify-content-between mb-3">
+    <button class="btn btn-primary" (click)="addUser()">Agregar Usuario</button>
+    <input type="search" class="form-control w-25" placeholder="Buscar usuario..." [(ngModel)]="searchQuery"
+      (input)="filterUsuarios()">
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Foto</th>
+          <th>Nombre</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsuarios">
+          <td><img [src]="user.imagen" alt="Foto de perfil" class="img-thumbnail" style="width: 50px; height: 50px;">
+          </td>
+          <td>{{ user.nombre }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.rol }}</td>
+          <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="selectUser(user)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteUser(user)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="isEditing" class="edit-form p-4 mt-4 bg-light rounded shadow">
+    <h3 class="mb-3">{{ isAdding ? 'Agregar' : 'Editar' }} Usuario</h3>
+    <form (ngSubmit)="saveUser()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" [(ngModel)]="selectedUser!.nombre" name="nombre" required>
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="selectedUser!.username" name="username"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="selectedUser!.email" name="email" required>
+      </div>
+      <div class="mb-3 position-relative">
+        <label for="password" class="form-label">Contraseña</label>
+        <input [type]="passwordFieldType" class="form-control" id="password" [(ngModel)]="selectedUser!.password"
+          name="password" required minlength="6" maxlength="8" pattern="^(?=.*[A-Z])(?=.*\d).{6,8}$"
+          #password="ngModel">
+        <button type="button" class="btn btn-link position-absolute" (click)="togglePasswordVisibility()"
+          style="top: 50%; right: 10px; transform: translateY(-50%);">
+          <i [ngClass]="passwordFieldType === 'password' ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+        </button>
+        <div *ngIf="password.touched && password.invalid" class="text-danger">
+          <div *ngIf="password.errors?.['required']">La contraseña es requerida.</div>
+          <div *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+          <div *ngIf="password.errors?.['maxlength']">La contraseña no debe exceder los 8 caracteres.</div>
+          <div *ngIf="password.errors?.['pattern']">La contraseña debe contener al menos una mayúscula y un número.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="birthdate" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="birthdate" [(ngModel)]="selectedUser!.birthdate" name="birthdate"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="address" class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="address" [(ngModel)]="selectedUser!.address" name="address"
+          required>
+      </div>
+      <div class="mb-3">
+        <label for="rol" class="form-label">Rol</label>
+        <select class="form-select" id="rol" [(ngModel)]="selectedUser!.rol" name="rol" required>
+          <option value="cliente">Cliente</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success me-2">{{ isAdding ? 'Agregar' : 'Guardar' }}</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancelar</button>
+    </form>
+  </div>
+</div>

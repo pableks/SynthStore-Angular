@@ -1,0 +1,81 @@
+<!-- carrito.component.html -->
+<div class="jumbotron text-center">
+    <h1 class="display-4">Carrito de Compras</h1>
+    <p class="lead">Revisa tus productos antes de proceder al pago.</p>
+</div>
+
+<div class="container">
+    <nav aria-label="breadcrumb" class="breadcrumb-container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a routerLink="/catalogo">Catálogo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Carrito de compras</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Tu Carrito</h3>
+            <div *ngFor="let item of carritoItems; let i = index" class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img [src]="item.product.imagen" alt="{{ item.product.nombre }}" class="img-thumbnail"
+                                style="width: 100%;">
+                        </div>
+                        <div class="col-md-6">
+                            <h5>{{ item.product.nombre }}</h5>
+                            <p>{{ item.product.precio | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL' }} x {{
+                                item.quantity}}</p>
+                        </div>
+                        <div class="col-md-4 text-right">
+                            <label for="cantidad-{{i}}" class="sr-only">Cantidad</label>
+                            <input type="number" id="cantidad-{{i}}" class="form-control mb-2"
+                                [(ngModel)]="item.quantity" (change)="updateQuantity(i, item.quantity)" min="1"
+                                title="Ingrese la cantidad" placeholder="Cantidad">
+                            <button class="btn btn-danger" (click)="removeItem(i)">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h3>Resumen de la Compra</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p>Total: <strong>{{ total | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL' }}</strong></p>
+                    <div>
+                        <h5>Seleccione el método de pago</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod"
+                                [(ngModel)]="paymentMethod" value="WebPay" id="WebPay">
+                            <label class="form-check-label" for="WebPay">
+                                WebPay
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod"
+                                [(ngModel)]="paymentMethod" value="MercadoPago" id="MercadoPago">
+                            <label class="form-check-label" for="MercadoPago">
+                                MercadoPago
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="paymentMethod"
+                                [(ngModel)]="paymentMethod" value="Tenpo" id="Tenpo">
+                            <label class="form-check-label" for="Tenpo">
+                                Flow.cl
+                            </label>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block mt-3" [disabled]="isCartEmpty || !paymentMethod"
+                        [ngClass]="{'disabled': isCartEmpty || !paymentMethod}" (click)="procederAlPago()">Proceder al
+                        Pago</button>
+                    <div *ngIf="paymentMessage" class="alert alert-info mt-3">
+                        {{ paymentMessage }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

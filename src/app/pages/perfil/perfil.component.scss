@@ -1,0 +1,56 @@
+.container {
+    margin-top: 20px;
+}
+
+h2 {
+    color: #858ae3;
+    /* Color primario */
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555555;
+}
+
+.btn-primary {
+    background-color: #858ae3;
+    border-color: #858ae3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.card {
+    .rounded-circle {
+        border: 2px solid #ddd;
+        padding: 5px;
+        object-fit: cover;
+    }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+}

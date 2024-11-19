@@ -1,0 +1,48 @@
+
+
+<div class="breadcrumb-container container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a routerLink="/catalogo">Catálogo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ product?.nombre }}</li>
+        </ol>
+    </nav>
+</div>
+
+<div *ngIf="loading">Cargando producto...</div>
+<div *ngIf="!loading && product" class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img [src]="product.imagen" class="img-fluid" alt="{{ product.nombre }}">
+        </div>
+        <div class="col-md-6">
+            <h1 class="my-4">{{ product.nombre }}</h1>
+            <p>SKU: {{ product.sku }}</p>
+            <ul>
+                <li class="price-tag">Precio: {{ product.precio | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL' }} </li>
+            </ul>
+            <h4 class="my-3">Descripción</h4>
+            <p>{{ product.descripcion }}</p>
+            <div class="my-3">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" [(ngModel)]="quantity" min="1">
+            </div>
+            <button class="btn btn-primary" (click)="addToCarrito()">Agregar al Carrito</button>
+        </div>
+    </div>
+    <h3 class="my-4">Productos Relacionados</h3>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let relatedProduct of relatedProducts">
+            <div class="card lift-on-hover">
+                <img [src]="relatedProduct.imagen" class="card-img-top" alt="{{ relatedProduct.nombre }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ relatedProduct.nombre }}</h5>
+                    <p class="card-text">{{ relatedProduct.descripcion }}</p>
+                    <p class="price">{{ relatedProduct.precio | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL' }} </p>
+                    <a [routerLink]="['/producto', relatedProduct.sku]" class="btn btn-primary">Ver Producto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

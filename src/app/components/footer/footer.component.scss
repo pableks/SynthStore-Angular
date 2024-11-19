@@ -1,0 +1,21 @@
+html, body {
+  font-family: 'SpaceGrotesk';
+
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'SpaceGrotesk';
+
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content-wrapper {
+    flex: 1 0 auto;
+  }
+  
+  .footer {
+    
+    flex-shrink: 0;
+  }

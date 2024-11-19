@@ -1,0 +1,38 @@
+<div class="checkout-container container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Gracias por tu compra</h1>
+        <p class="lead">Tu número de pedido es: <strong>{{ orderNumber }}</strong></p>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">Detalle de la compra</h2>
+        </div>
+        <div class="card-body">
+            <div *ngFor="let item of carritoItems" class="mb-3">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img [src]="item.product.imagen" alt="{{ item.product.nombre }}" class="img-thumbnail">
+                    </div>
+                    <div class="col-md-6">
+                        <h5>{{ item.product.nombre }}</h5>
+                        <p>{{ item.product.descripcionCorta }}</p>
+                    </div>
+                    <div class="col-md-4 text-md-right">
+                        <p>{{ item.quantity }} x {{ item.product.precio | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL'
+                            }}</p>
+                        <p><strong>Total: {{ item.quantity * item.product.precio |
+                                currency:'CLP':'symbol-narrow':'1.0-0':'es-CL' }}</strong></p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="text-right">
+                <p class="h5">Total pagado: <strong>{{ total | currency:'CLP':'symbol-narrow':'1.0-0':'es-CL'
+                        }}</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button (click)="goHome()" class="btn btn-primary btn-lg">Regresar al Inicio</button>
+    </div>
+</div>

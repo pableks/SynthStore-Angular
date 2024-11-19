@@ -1,0 +1,60 @@
+.jumbotron {
+  background-size: cover;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 6rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.jumbotron h1,
+.jumbotron p {
+  position: relative;
+  z-index: 1;
+  color: rgb(255, 255, 255);
+}
+
+.breadcrumb-container {
+  background-color: #f8f9fabc; /* Color de fondo */
+  border-radius: 0.25rem; /* Bordes redondeados */
+  padding: 0.5rem 1rem; /* Espaciado interior */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); /* Sombra */
+  margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+  color: #858ae3;
+}
+
+.breadcrumb-item.active {
+  color: #333;
+}
+
+.container {
+  padding-top: 20px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.price-tag {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #858ae3;
+  /* Rojo claro */
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+}
